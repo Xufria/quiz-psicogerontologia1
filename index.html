@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <!-- Otimização para Mobile -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0A2463">
+<meta name="mobile-web-app-capable" content="yes">
+
+<!-- Ícones para diferentes dispositivos -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de Coping - Psicogerontologia</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container-quiz">
+        <!-- CABEÇALHO ACADÉMICO -->
+        <header class="cabecalho-academico">
+            <div class="instituicao">INSTITUTO POLITÉCNICO DE BEJA</div>
+            <div class="curso-info">CTeSP em Psicogerontologia | Psicologia da Saúde</div>
+            <h1 class="titulo-principal">Questionário de Coping no Envelhecimento</h1>
+            <div class="subtitulo">Baseado no modelo transacional de Lazarus & Folkman (1984)</div>
+        </header>
+
+        <!-- TELA INICIAL -->
+        <section id="tela-inicial" class="tela ativa">
+            <div class="autores-container">
+                <div class="cartao-autor">
+                    <div class="nome-autor">Leonor Francisco</div>
+                    <div class="numero-autor">Número de estudante: 27303</div>
+                </div>
+                <div class="cartao-autor">
+                    <div class="nome-autor">Luana Coelho</div>
+                    <div class="numero-autor">Número de estudante: 27332</div>
+                </div>
+                <div class="cartao-autor">
+                    <div class="nome-autor">Ana Bonito</div>
+                    <div class="numero-autor">Número de estudante: 26568</div>
+                </div>
+            </div>
+
+            <div class="introducao">
+                <h2 style="color: var(--azul-profundo); margin-bottom: 20px;">
+                    Instruções do Questionário
+                </h2>
+                <p class="texto-introducao">
+                    Este questionário interativo contém 10 situações relacionadas com o envelhecimento. 
+                    Para cada situação, selecione a estratégia de coping mais adequada, com base no modelo 
+                    transacional de Lazarus & Folkman (1984). Após cada resposta, receberá uma explicação 
+                    detalhada sobre a resposta correta.
+                </p>
+                <p class="texto-introducao">
+                    <strong>Ano letivo:</strong> 2025/2026<br>
+                    <strong>Unidade curricular:</strong> Psicologia da Saúde<br>
+                    <strong>Docente:</strong> Diana Morais
+                </p>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <button class="botao-principal" id="botao-iniciar">
+                    Iniciar Questionário
+                    <span style="font-size: 14px; opacity: 0.9;">(10 questões)</span>
+                </button>
+            </div>
+        </section>
+<div style="text-align: center; margin-top: 40px;">
+    <button class="botao-principal" id="botao-iniciar">
+        Iniciar Questionário
+        <span style="font-size: 14px; opacity: 0.9;">(10 questões)</span>
+    </button>
+    
+    <!-- NOVO: Botão para compartilhar no telemóvel -->
+    <div style="margin-top: 20px;">
+        <button class="botao-secundario" id="botao-compartilhar" style="display: none;">
+             Compartilhar no Telemóvel
+        </button>
+    </div>
+</div>
+        <!-- TELA DO QUESTIONÁRIO -->
+        <section id="tela-questionario" class="tela">
+            <div class="cabecalho-quiz">
+                <h2 class="titulo-quiz">
+                    <span style="color: var(--azul-claro);">●</span>
+                    Questionário Interativo
+                </h2>
+                
+                <div class="indicador-progresso">
+                    <div class="texto-progresso" id="texto-progresso">Questão 1 de 10</div>
+                    <div class="barra-progresso">
+                        <div class="preenchimento-progresso" id="barra-progresso"></div>
+                    </div>
+                    <div class="texto-progresso" id="percentagem-progresso">10%</div>
+                </div>
+            </div>
+
+            <div class="cartao-pergunta">
+                <div class="texto-pergunta" id="texto-pergunta">
+                    <!-- O texto da pergunta será inserido aqui pelo JavaScript -->
+                </div>
+                
+                <div class="container-opcoes" id="container-opcoes">
+                    <!-- As opções de resposta serão inseridas aqui pelo JavaScript -->
+                </div>
+
+                <div class="explicacao-resposta" id="explicacao-resposta">
+                    <div class="titulo-explicacao">Explicação da Resposta Correta:</div>
+                    <div class="texto-explicacao" id="texto-explicacao">
+                        <!-- O texto da explicação será inserido aqui pelo JavaScript -->
+                    </div>
+                    <div class="referencia-teorica" id="referencia-teorica">
+                        <!-- A referência teórica será inserida aqui pelo JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="navegacao-quiz">
+                <button class="botao-secundario" id="botao-reiniciar">
+                    Reiniciar Questionário
+                </button>
+                <button class="botao-principal" id="botao-proximo" disabled>
+                    Próxima Questão
+                </button>
+            </div>
+        </section>
+
+        <!-- TELA DE RESULTADOS -->
+        <section id="tela-resultados" class="tela">
+            <div class="resultados-container">
+                <h2 class="titulo-resultados">Questionário Concluído</h2>
+                
+                <div class="destaque-pontuacao" id="pontuacao-final">0/10</div>
+                
+                <div class="mensagem-resultado" id="mensagem-resultado">
+                    <!-- A mensagem do resultado será inserida aqui pelo JavaScript -->
+                </div>
+
+                <div class="estatisticas">
+                    <div class="cartao-estatistica">
+                        <div class="valor-estatistica" id="percentagem-acertos">0%</div>
+                        <div class="rotulo-estatistica">Percentagem de Acertos</div>
+                    </div>
+                    <div class="cartao-estatistica">
+                        <div class="valor-estatistica" id="questoes-corretas">0</div>
+                        <div class="rotulo-estatistica">Questões Corretas</div>
+                    </div>
+                    <div class="cartao-estatistica">
+                        <div class="valor-estatistica" id="estrategias-identificadas">0</div>
+                        <div class="rotulo-estatistica">Estratégias Identificadas</div>
+                    </div>
+                </div>
+
+                <div class="estrategias-aprendidas">
+                    <h3 class="titulo-estrategias">Estratégias de Coping Identificadas Corretamente</h3>
+                    <ul class="lista-estrategias" id="lista-estrategias">
+                        <!-- A lista de estratégias será inserida aqui pelo JavaScript -->
+                    </ul>
+                </div>
+
+               <div style="margin-top: 40px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+    <!-- NOVO: Botão de compartilhamento -->
+    <button class="botao-secundario" id="botao-compartilhar-resultados">
+        Compartilhar Resultados
+    </button>
+    
+    <button class="botao-secundario" id="botao-voltar-inicio">
+        Voltar ao Início
+    </button>
+    <button class="botao-principal" id="botao-realizar-novamente">
+        Realizar Novamente
+    </button>
+</div>
+
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
